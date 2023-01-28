@@ -1,7 +1,7 @@
 import React from "react";
 import {Badge,Button,Row,Col,Card,Container} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-//import '../styles/style.css'
+import '../styles/style.css'
 import '../styles/style2.css'
 import Image from 'react-bootstrap/Image'
 const Postcard = (props) => {
