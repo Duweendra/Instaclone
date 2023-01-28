@@ -9,7 +9,6 @@ router.post('/addpost',verify,upload.single("image"),postController.addPost)
 router.get('/allposts',postController.getPosts)
 router.put('/like/:id',verify,postController.setLikes)
 router.get('/:id' ,postController.getOnePost)
-//router.put('/:id',verify,upload.single("image"),postController.updateAdvertisment)
-//router.delete('/:id',verify,postController.deleteAdvertisment)
+
 
 module.exports = router;

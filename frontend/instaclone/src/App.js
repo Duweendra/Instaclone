@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import RequireAuth from './components/RequireAuth';
 import UserLogin from './components/login'
+import Posts from './components/posts';
 
 
 function App() {
@@ -29,8 +30,8 @@ function App() {
 
       <Route element={<RequireAuth />}>
      
-     {/*  <Route path="/posts" element={TimeLine/>}/>
-      */}
+      <Route path="/posts" element={<Posts/>}/>
+     
       </Route>
 
    

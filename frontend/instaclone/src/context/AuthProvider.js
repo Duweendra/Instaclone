@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
         JSON.parse(localStorage.getItem('user')))
   
     useEffect(()=>{
-      if(auth==undefined)
+      if(auth===undefined)
       { }
       else{
         localStorage.setItem('user',JSON.stringify(auth))

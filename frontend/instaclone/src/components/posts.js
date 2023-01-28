@@ -7,7 +7,7 @@ import axios,{BASE_URL} from '../api/axios';
 import { Link } from 'react-router-dom';
 import Postcard from './postCard';
 
-export default function Counter(props) {
+export default function Posts(props) {
 
   const { auth } = useAuth();
 
@@ -31,11 +31,11 @@ export default function Counter(props) {
   })
 
   
-    const viewPostHandler = async(id,queue_num,name) => {
+    const viewPostHandler = async(id) => {
       try {
-        const res = await authAxios.put(`api/cuser/issuecalle/${id}`);
+        const res = await authAxios.put(`/api/posts/like/${id}`);
        console.log(res)
-       const res1 = await authAxios.put(`api/cuser/nextissuecalled/${queue_num}`);
+      
        
        } 
        catch (error) {
@@ -53,16 +53,20 @@ export default function Counter(props) {
     const fetchPosts = async () => {
        try {
         
-        const response = await authAxios.post('/api/posts/allposts');
-        if(!response.data.length===0)
-        {setPosts(response.data)}
+        const response = await authAxios.get('/api/posts/allposts');
+        console.log(response)
+        if(!(response.data.data.length==0))
+        {
+            setPosts(response.data.data)
+        }
         else{
           setNulla(true)
         }
        
           
        
-       console.log(response.data)
+       console.log((response.data.data[0].id))
+       console.log(posts)
         
         
        
@@ -101,7 +105,7 @@ export default function Counter(props) {
   
   const renderpostlist = posts.map((post) =>(
     <Postcard
-    issue={post}
+    post={post}
     key={post.id}
     clickHander={viewPostHandler}
     />
