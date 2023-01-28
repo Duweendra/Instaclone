@@ -68,7 +68,7 @@ const loginuser = async (req,res) =>{
          
           
       } else{
-        res.send('not allowed')
+        res.status(400).send('not allowed')
       }
     } catch(e){
         res.status(500).send(e)

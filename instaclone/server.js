@@ -8,7 +8,7 @@ const cors = require('cors')
 const app= express()
 
 var corOptions ={
-      origin : 'https://localhost:8000'
+      origin : 'http://localhost:3000'
 }
 
 

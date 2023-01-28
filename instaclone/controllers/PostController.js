@@ -78,25 +78,19 @@ try{let id = req.params.id
 }
 
 
-// get update advertisement
+//  update like
 
-const updateAdvertisment = async (req,res) =>{
+const setLikes = async (req,res) =>{
 
  try{
    let info ={
-  topic:req.body.topic,
-  category:req.body.category,
-  price:req.body.price,
-  city:req.body.city,
-  image:req.file.path,
-  description:req.body.description,
-  user_id: req.user.Uid   
+  likes:req.body.likes
 }
 
   let id = req.params.id
   
-  const advertisment = await Advertisment.update( info, { where:{ id:id}})
-  res.status(200).send('advertisment updated successful')
+  const post = await Post.update( info, { where:{ id:id}})
+  res.status(200).send('post like updated successful')
   }
   catch(error){
   res.status(500).send(error.message)
@@ -104,9 +98,9 @@ const updateAdvertisment = async (req,res) =>{
    
   }
 
-  // get delete advertisement by id
+  // get delete post  by id
 
-const deleteAdvertisment = async (req,res) =>{
+/* const deleteAdvertisment = async (req,res) =>{
 
 
     let id = req.params.id
@@ -114,7 +108,7 @@ const deleteAdvertisment = async (req,res) =>{
     await Advertisment.destroy({ where:  {id:id}})
     res.status(200).send('advertisment deleted !')
    
-  }
+  } */
 
   function paginationResults(model){
     return(req,res,next) => {
@@ -144,5 +138,6 @@ const deleteAdvertisment = async (req,res) =>{
     addPost,
     getPosts,
       getOnePost,
+      setLikes
      
   }

@@ -1,24 +1,42 @@
-import logo from './logo.svg';
+
 import './App.css';
+import {useEffect,useRef,useState} from 'react'
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import RequireAuth from './components/RequireAuth';
+import UserLogin from './components/login'
+
 
 function App() {
+  
+  const [username, setUsername] = useState("");
+  const [user, setUser] = useState("");
+  
+  
+  
+  
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Routes>
+    {/*   <Route path="/register" element={<UserLogin/>} /> */}
+      <Route path="/login" element={<UserLogin/>} />
+  
+
+
+      <Route element={<RequireAuth />}>
+     
+     {/*  <Route path="/posts" element={TimeLine/>}/>
+      */}
+      </Route>
+
+   
+      
+    </Routes>
+  </BrowserRouter>
   );
 }
 
